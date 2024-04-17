@@ -32,7 +32,7 @@ pipeline {
         
         stage('Push Docker Image') {
             steps {
-                withDockerRegistry([credentialsId: '3dad1a07-5720-4c90-8611-b549a64ae36b', url: 'https://index.docker.io/v1/']) {
+                withDockerRegistry([credentialsId: '3dad1a07-5720-4c90-8611-b549a64ae36b', url: 'https://docker.io']) {
                     // Push Docker image to Docker Hub
                     sh 'docker push emily'
                 }
