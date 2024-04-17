@@ -26,17 +26,17 @@ pipeline {
         stage('Run Docker Image') {
             steps {
                 // Run Docker container from the built image
-                bat 'docker run -d -p 8080:8080 emily'
+                bat 'docker run -d -p 3004:3004 emily'
             }
         }
         
-        stage('Push Docker Image') {
-            steps {
-                withDockerRegistry([credentialsId: '3dad1a07-5720-4c90-8611-b549a64ae36b', url: 'https://docker.io']) {
-                    // Push Docker image to Docker Hub
-                    bat 'docker push emily'
-                }
-            }
-        }
+        // stage('Push Docker Image') {
+        //     steps {
+        //         withDockerRegistry([credentialsId: '3dad1a07-5720-4c90-8611-b549a64ae36b', url: 'https://docker.io']) {
+        //             // Push Docker image to Docker Hub
+        //             bat 'docker push emily'
+        //         }
+        //     }
+        // }
     }
 }
